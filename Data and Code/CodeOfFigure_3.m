@@ -1,0 +1,272 @@
+clear;clc;
+subplot(2,5,1);
+lon_V = ncread("SSS-SSD-20130510.nc",'lon');   
+lat_V = ncread("SSS-SSD-20130510.nc",'lat');   
+date = ncread("SSS-SSD-20130510.nc",'time'); 
+date = datetime(1950,1,1)+double(date(:))/24; 
+SSS_V = ncread("SSS-SSD-20130510.nc",'sos'); 
+lon1=78;lon2=100; lat1=3;lat2=25;    
+filename='Viyaru_BestTrack.xlsx';opts=detectImportOptions(filename);
+opts.VariableNamingRule='preserve';
+Best_track=readtable('Viyaru_BestTrack.xlsx',opts);
+lattc=table2array(Best_track(:,3));
+lontc=table2array(Best_track(:,4));
+sss=SSS_V(find(lon_V>=lon1&lon_V<=lon2),find(lat_V>=lat1&lat_V<=lat2))';
+lon=lon_V(find(lon_V>=lon1&lon_V<=lon2));
+lat=lat_V(find(lat_V>=lat1&lat_V<=lat2));
+[LON,LAT]=meshgrid(lon,lat);
+m_proj('Miller','lon',[lon1 lon2],'lat',[lat1 lat2]);
+m_pcolor(LON,LAT,sss);
+shading flat;colormap("parula");
+h=colorbar('v','Fontsize',11,'FontWeight','normal');
+h.Label.FontSize=12;h.Label.FontWeight='bold';
+h.Label.FontName='Times New Roman';
+clim([29 33]);hold on;
+m_coast('patch',[0.5 0.5 0.5],'Edgecolor','black');
+m_grid('linestyle',':','box','fancy','tickdir','out','linecolor','w',...
+      'alpah','0.5','ytick',3:3:25,'xtick',78:4:100,'Fontsize',10,...
+       'FontWeight','bold');
+m_plot(lontc(1:3:end),lattc(1:3:end),'o','Markersize',3,'linewidth',1.5,'Color','k','MarkerFacecolor','k');
+
+subplot(2,5,2);
+lon_V = ncread("SSS-SSD-20130515.nc",'lon');   
+lat_V = ncread("SSS-SSD-20130515.nc",'lat');   
+date = ncread("SSS-SSD-20130515.nc",'time'); 
+date = datetime(1950,1,1)+double(date(:))/24; 
+SSS_V = ncread("SSS-SSD-20130515.nc",'sos'); 
+lon1=78;lon2=100; lat1=3;lat2=25;    
+filename='Viyaru_BestTrack.xlsx';opts=detectImportOptions(filename);
+opts.VariableNamingRule='preserve';
+Best_track=readtable('Viyaru_BestTrack.xlsx',opts);
+lattc=table2array(Best_track(:,3));
+lontc=table2array(Best_track(:,4));
+sss=SSS_V(find(lon_V>=lon1&lon_V<=lon2),find(lat_V>=lat1&lat_V<=lat2))';
+lon=lon_V(find(lon_V>=lon1&lon_V<=lon2));
+lat=lat_V(find(lat_V>=lat1&lat_V<=lat2));
+[LON,LAT]=meshgrid(lon,lat);
+m_proj('Miller','lon',[lon1 lon2],'lat',[lat1 lat2]);
+m_pcolor(LON,LAT,sss);
+shading flat;colormap("parula");
+h=colorbar('v','Fontsize',11,'FontWeight','normal');
+h.Label.FontSize=12;h.Label.FontWeight='bold';
+h.Label.FontName='Times New Roman';
+clim([29 33]);hold on;
+m_coast('patch',[0.5 0.5 0.5],'Edgecolor','black');
+m_grid('linestyle',':','box','fancy','tickdir','out','linecolor','w',...
+      'alpah','0.5','ytick',3:3:25,'xtick',78:4:100,'Fontsize',10,...
+       'FontWeight','bold');
+m_plot(lontc(1:3:end),lattc(1:3:end),'o','Markersize',3,'linewidth',1.5,'Color','k','MarkerFacecolor','k');
+
+subplot(2,5,3);
+lon_V = ncread("SSS-SSD-20130517.nc",'lon');   
+lat_V = ncread("SSS-SSD-20130517.nc",'lat');   
+date = ncread("SSS-SSD-20130517.nc",'time'); 
+date = datetime(1950,1,1)+double(date(:))/24; 
+SSS_V = ncread("SSS-SSD-20130517.nc",'sos'); 
+lon1=78;lon2=100; lat1=3;lat2=25;    
+filename='Viyaru_BestTrack.xlsx';opts=detectImportOptions(filename);
+opts.VariableNamingRule='preserve';
+Best_track=readtable('Viyaru_BestTrack.xlsx',opts);
+lattc=table2array(Best_track(:,3));
+lontc=table2array(Best_track(:,4));
+sss=SSS_V(find(lon_V>=lon1&lon_V<=lon2),find(lat_V>=lat1&lat_V<=lat2))';
+lon=lon_V(find(lon_V>=lon1&lon_V<=lon2));
+lat=lat_V(find(lat_V>=lat1&lat_V<=lat2));
+[LON,LAT]=meshgrid(lon,lat);
+m_proj('Miller','lon',[lon1 lon2],'lat',[lat1 lat2]);
+m_pcolor(LON,LAT,sss);
+shading flat;colormap("parula");
+h=colorbar('v','Fontsize',11,'FontWeight','normal');
+h.Label.FontSize=12;h.Label.FontWeight='bold';
+h.Label.FontName='Times New Roman';
+clim([29 33]);hold on;
+m_coast('patch',[0.5 0.5 0.5],'Edgecolor','black');
+m_grid('linestyle',':','box','fancy','tickdir','out','linecolor','w',...
+      'alpah','0.5','ytick',3:3:25,'xtick',78:4:100,'Fontsize',10,...
+       'FontWeight','bold');
+m_plot(lontc(1:3:end),lattc(1:3:end),'o','Markersize',3,'linewidth',1.5,'Color','k','MarkerFacecolor','k');
+
+subplot(2,5,4);
+lon_V = ncread("SSS-SSD-20130518.nc",'lon');   
+lat_V = ncread("SSS-SSD-20130518.nc",'lat');   
+date = ncread("SSS-SSD-20130518.nc",'time'); 
+date = datetime(1950,1,1)+double(date(:))/24; 
+SSS_V = (ncread("SSS-SSD-20130518.nc",'sos')+ncread("SSS-SSD-20130519.nc",'sos')+ncread("SSS-SSD-20130520.nc",'sos'))./3;  
+lon1=78;lon2=100; lat1=3;lat2=25;    
+filename='Viyaru_BestTrack.xlsx';opts=detectImportOptions(filename);
+opts.VariableNamingRule='preserve';
+Best_track=readtable('Viyaru_BestTrack.xlsx',opts);
+lattc=table2array(Best_track(:,3));
+lontc=table2array(Best_track(:,4));
+sss=SSS_V(find(lon_V>=lon1&lon_V<=lon2),find(lat_V>=lat1&lat_V<=lat2))';
+lon=lon_V(find(lon_V>=lon1&lon_V<=lon2));
+lat=lat_V(find(lat_V>=lat1&lat_V<=lat2));
+[LON,LAT]=meshgrid(lon,lat);
+m_proj('Miller','lon',[lon1 lon2],'lat',[lat1 lat2]);
+m_pcolor(LON,LAT,sss);
+shading flat;colormap("parula");
+h=colorbar('v','Fontsize',11,'FontWeight','normal');
+h.Label.FontSize=12;h.Label.FontWeight='bold';
+h.Label.FontName='Times New Roman';
+clim([29 33]);hold on;
+m_coast('patch',[0.5 0.5 0.5],'Edgecolor','black');
+m_grid('linestyle',':','box','fancy','tickdir','out','linecolor','w',...
+      'alpah','0.5','ytick',3:3:25,'xtick',78:4:100,'Fontsize',10,...
+       'FontWeight','bold');
+m_plot(lontc(1:3:end),lattc(1:3:end),'o','Markersize',3,'linewidth',1.5,'Color','k','MarkerFacecolor','k');
+
+subplot(2,5,6);
+lon_V = ncread("SSS-SSD-20131123.nc",'lon');   
+lat_V = ncread("SSS-SSD-20131123.nc",'lat');   
+date = ncread("SSS-SSD-20131123.nc",'time'); 
+date = datetime(1950,1,1)+double(date(:))/24; 
+SSS_V = ncread("SSS-SSD-20131123.nc",'sos'); 
+lon1=78;lon2=100; lat1=3;lat2=25;    
+filename='Lehar_BestTrack.xlsx';opts=detectImportOptions(filename);
+opts.VariableNamingRule='preserve';
+Best_track=readtable('Lehar_BestTrack.xlsx',opts);
+lattc=table2array(Best_track(:,3));
+lontc=table2array(Best_track(:,4));
+sss=SSS_V(find(lon_V>=lon1&lon_V<=lon2),find(lat_V>=lat1&lat_V<=lat2))';
+lon=lon_V(find(lon_V>=lon1&lon_V<=lon2));
+lat=lat_V(find(lat_V>=lat1&lat_V<=lat2));
+[LON,LAT]=meshgrid(lon,lat);
+m_proj('Miller','lon',[lon1 lon2],'lat',[lat1 lat2]);
+m_pcolor(LON,LAT,sss);
+shading flat;colormap("parula");
+h=colorbar('v','Fontsize',11,'FontWeight','normal');
+h.Label.FontSize=12;h.Label.FontWeight='bold';
+h.Label.FontName='Times New Roman';
+clim([29 33]);hold on;
+m_coast('patch',[0.5 0.5 0.5],'Edgecolor','black');
+m_grid('linestyle',':','box','fancy','tickdir','out','linecolor','w',...
+      'alpah','0.5','ytick',3:3:25,'xtick',78:4:100,'Fontsize',10,...
+       'FontWeight','bold');
+m_plot(lontc(1:3:end),lattc(1:3:end),'o','Markersize',3,'linewidth',1.5,'Color','k','MarkerFacecolor','k');
+
+subplot(2,5,7);
+lon_V = ncread("SSS-SSD-20131127.nc",'lon');   
+lat_V = ncread("SSS-SSD-20131127.nc",'lat');   
+date = ncread("SSS-SSD-20131127.nc",'time'); 
+date = datetime(1950,1,1)+double(date(:))/24; 
+SSS_V = ncread("SSS-SSD-20131127.nc",'sos'); 
+lon1=78;lon2=100; lat1=3;lat2=25;    
+filename='Lehar_BestTrack.xlsx';opts=detectImportOptions(filename);
+opts.VariableNamingRule='preserve';
+Best_track=readtable('Lehar_BestTrack.xlsx',opts);
+lattc=table2array(Best_track(:,3));
+lontc=table2array(Best_track(:,4));
+sss=SSS_V(find(lon_V>=lon1&lon_V<=lon2),find(lat_V>=lat1&lat_V<=lat2))';
+lon=lon_V(find(lon_V>=lon1&lon_V<=lon2));
+lat=lat_V(find(lat_V>=lat1&lat_V<=lat2));
+[LON,LAT]=meshgrid(lon,lat);
+m_proj('Miller','lon',[lon1 lon2],'lat',[lat1 lat2]);
+m_pcolor(LON,LAT,sss);
+shading flat;colormap("parula");
+h=colorbar('v','Fontsize',11,'FontWeight','normal');
+h.Label.FontSize=12;h.Label.FontWeight='bold';
+h.Label.FontName='Times New Roman';
+clim([29 33]);hold on;
+m_coast('patch',[0.5 0.5 0.5],'Edgecolor','black');
+m_grid('linestyle',':','box','fancy','tickdir','out','linecolor','w',...
+      'alpah','0.5','ytick',3:3:25,'xtick',78:4:100,'Fontsize',10,...
+       'FontWeight','bold');
+m_plot(lontc(1:3:end),lattc(1:3:end),'o','Markersize',3,'linewidth',1.5,'Color','k','MarkerFacecolor','k');
+
+subplot(2,5,8);
+lon_V = ncread("SSS-SSD-20131128.nc",'lon');   
+lat_V = ncread("SSS-SSD-20131128.nc",'lat');   
+date = ncread("SSS-SSD-20131128.nc",'time'); 
+date = datetime(1950,1,1)+double(date(:))/24; 
+SSS_V = ncread("SSS-SSD-20131128.nc",'sos'); 
+lon1=78;lon2=100; lat1=3;lat2=25;    
+filename='Lehar_BestTrack.xlsx';opts=detectImportOptions(filename);
+opts.VariableNamingRule='preserve';
+Best_track=readtable('Lehar_BestTrack.xlsx',opts);
+lattc=table2array(Best_track(:,3));
+lontc=table2array(Best_track(:,4));
+sss=SSS_V(find(lon_V>=lon1&lon_V<=lon2),find(lat_V>=lat1&lat_V<=lat2))';
+lon=lon_V(find(lon_V>=lon1&lon_V<=lon2));
+lat=lat_V(find(lat_V>=lat1&lat_V<=lat2));
+[LON,LAT]=meshgrid(lon,lat);
+m_proj('Miller','lon',[lon1 lon2],'lat',[lat1 lat2]);
+m_pcolor(LON,LAT,sss);
+shading flat;colormap("parula");
+h=colorbar('v','Fontsize',11,'FontWeight','normal');
+h.Label.FontSize=12;h.Label.FontWeight='bold';
+h.Label.FontName='Times New Roman';
+clim([29 33]);hold on;
+m_coast('patch',[0.5 0.5 0.5],'Edgecolor','black');
+m_grid('linestyle',':','box','fancy','tickdir','out','linecolor','w',...
+      'alpah','0.5','ytick',3:3:25,'xtick',78:4:100,'Fontsize',10,...
+       'FontWeight','bold');
+m_plot(lontc(1:3:end),lattc(1:3:end),'o','Markersize',3,'linewidth',1.5,'Color','k','MarkerFacecolor','k');
+
+subplot(2,5,9);
+lon_V = ncread("SSS-SSD-20131129.nc",'lon');   
+lat_V = ncread("SSS-SSD-20131129.nc",'lat');   
+date = ncread("SSS-SSD-20131129.nc",'time'); 
+date = datetime(1950,1,1)+double(date(:))/24; 
+SSS_V = (ncread("SSS-SSD-20131129.nc",'sos')+ncread("SSS-SSD-20131130.nc",'sos'))/2; 
+lon1=78;lon2=100; lat1=3;lat2=25;    
+filename='Lehar_BestTrack.xlsx';opts=detectImportOptions(filename);
+opts.VariableNamingRule='preserve';
+Best_track=readtable('Lehar_BestTrack.xlsx',opts);
+lattc=table2array(Best_track(:,3));
+lontc=table2array(Best_track(:,4));
+sss=SSS_V(find(lon_V>=lon1&lon_V<=lon2),find(lat_V>=lat1&lat_V<=lat2))';
+lon=lon_V(find(lon_V>=lon1&lon_V<=lon2));
+lat=lat_V(find(lat_V>=lat1&lat_V<=lat2));
+[LON,LAT]=meshgrid(lon,lat);
+m_proj('Miller','lon',[lon1 lon2],'lat',[lat1 lat2]);
+m_pcolor(LON,LAT,sss);
+shading flat;colormap("parula");
+h=colorbar('v','Fontsize',11,'FontWeight','normal');
+h.Label.FontSize=12;h.Label.FontWeight='bold';
+h.Label.FontName='Times New Roman';
+clim([29 33]);hold on;
+m_coast('patch',[0.5 0.5 0.5],'Edgecolor','black');
+m_grid('linestyle',':','box','fancy','tickdir','out','linecolor','w',...
+      'alpah','0.5','ytick',3:3:25,'xtick',78:4:100,'Fontsize',10,...
+       'FontWeight','bold');
+m_plot(lontc(1:3:end),lattc(1:3:end),'o','Markersize',3,'linewidth',1.5,'Color','k','MarkerFacecolor','k');
+
+subplot(2,5,5);hold on;
+clear;clc;
+load PK_Viyaru.dat;
+sea_surface_index=find(PK_Viyaru(:,7)==0)+1;
+lat=PK_Viyaru(sea_surface_index,1);
+SSS=PK_Viyaru(sea_surface_index,9);
+plot(lat,SSS,'ro-','linewidth',2,'MarkerFaceColor','r');
+ylim([26 32.0]);
+ylabel('SSS (psu)');
+xlabel('latitude (^oN)');
+hold on;
+clear;clc;
+PK_Lehar=readtable ('PK_Lehar.txt');
+PK_Lehar=table2array(PK_Lehar);
+sea_surface_index=find(PK_Lehar(:,7)==0)+1;
+lat=PK_Lehar(sea_surface_index,1);
+SSS=PK_Lehar(sea_surface_index,9);
+plot(lat,SSS,'bo-','linewidth',2,'MarkerFaceColor','b');
+ylim([26 32.0]);
+ylabel('SSS (psu)');
+xlabel('latitude (^oN)');
+legend('Viyaru','Lehar');
+
+subplot(2,5,10);hold on;
+load cpsss.dat;
+LON_Viyaru=cpsss(1:16,2);
+LAT_Viyaru=cpsss(1:16,1);
+SSS_Viyaru=cpsss(1:16,4);
+LON_Lehar=cpsss(17:30,2);
+LAT_Lehar=cpsss(17:30,1);
+SSS_Lehar=cpsss(17:30,4);
+plot(LON_Viyaru,SSS_Viyaru,'ro-','linewidth',1.8,'MarkerFaceColor','r');hold on;
+plot(LON_Lehar,SSS_Lehar,'bo-','linewidth',1.8,'MarkerFaceColor','b');
+xlabel('longitude (^oE)');
+ylabel('SSS (psu)');
+xlim([80 92]);
+ylim([30 35]);
+legend('Viyaru','Lehar');
+
